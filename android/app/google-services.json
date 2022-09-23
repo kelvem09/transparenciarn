@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "483218567243",
+    "firebase_url": "https://transparenciapotiguar-default-rtdb.firebaseio.com",
+    "project_id": "transparenciapotiguar",
+    "storage_bucket": "transparenciapotiguar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483218567243:android:502974bac12f87d7035dce",
+        "android_client_info": {
+          "package_name": "com.example.app_transparencia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483218567243-lu32ed5nnk1ueg9cv261cra30hk9kg4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGt1MuiPzWa_ZUCiCszyFdlLElmD1y7go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483218567243-lu32ed5nnk1ueg9cv261cra30hk9kg4a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483218567243-5cu22dp245h84ljam5maa2rmrgb7r2tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.testetransparencia"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483218567243:android:ce4b53945341f8ce035dce",
+        "android_client_info": {
+          "package_name": "com.mycompany.testetransparencia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483218567243-feel51bfqruqhuhi5528p8ts5b44au7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.testetransparencia",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "483218567243-lu32ed5nnk1ueg9cv261cra30hk9kg4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGt1MuiPzWa_ZUCiCszyFdlLElmD1y7go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483218567243-lu32ed5nnk1ueg9cv261cra30hk9kg4a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483218567243-5cu22dp245h84ljam5maa2rmrgb7r2tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.testetransparencia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
