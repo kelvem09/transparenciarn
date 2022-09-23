@@ -5,7 +5,46 @@ import 'package:app_transparencia/ui/ipva.dart';
 import 'package:app_transparencia/ui/royaltie.dart';
 import 'package:flutter/material.dart';
 
-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+import '../grafico/geradorGraficos.dart';
+
+const List<String> listMunicipio = <String>[
+  'Deixar em branco',
+  'Natal',
+  'Parnamirim',
+  'Mossoro',
+  'Caico',
+  'Currais Novos'
+];
+const List<String> listAno = <String>[
+  'Deixar em branco',
+  '2022',
+  '2021',
+  '2020',
+  '2019',
+  '2018',
+  '2017',
+  '2016',
+  '2015',
+  '2014',
+  '2013',
+  '2012',
+  '2011'
+];
+const List<String> listMes = <String>[
+  'Deixar em branco',
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro'
+];
 
 class ICMSPage extends StatefulWidget {
   const ICMSPage({Key? key}) : super(key: key);
@@ -18,7 +57,10 @@ class ICMSPage extends StatefulWidget {
 
 class _ICMSPageState extends State<ICMSPage> {
   // ignore: avoid_init_to_null
-  String? dropdownValue = null;
+  String? municipio = null;
+  String? ano = null;
+  String? mes = null;
+  int tipo = 0;
 
   Map<String, double> dataMap = {
     "ICMS": 45,
@@ -30,8 +72,8 @@ class _ICMSPageState extends State<ICMSPage> {
   void _onItemTapped(int index) {
     setState(() {
       if (index == 0) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const MyHomePage()));
       } else if (index == 2) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => const IPVAPage()));
@@ -59,10 +101,8 @@ class _ICMSPageState extends State<ICMSPage> {
               size: 30,
             ),
             onPressed: () async {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const InfoPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const InfoPage()));
             },
           )
         ],
@@ -72,14 +112,18 @@ class _ICMSPageState extends State<ICMSPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             DropdownButton<String>(
-              value: dropdownValue,
+              value: municipio,
               // isExpanded: true,
               onChanged: (String? value) {
                 setState(() {
-                  dropdownValue = value!;
+                  municipio = value;
+                  if (value == 'Deixar em branco') {
+                    municipio = null;
+                  }
                 });
               },
-              items: list.map<DropdownMenuItem<String>>((String value) {
+              items:
+                  listMunicipio.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -88,14 +132,17 @@ class _ICMSPageState extends State<ICMSPage> {
               hint: const Text("Município"),
             ),
             DropdownButton<String>(
-              value: dropdownValue,
+              value: ano,
               // isExpanded: true,
               onChanged: (String? value) {
                 setState(() {
-                  dropdownValue = value!;
+                  ano = value;
+                  if (value == 'Deixar em branco') {
+                    ano = null;
+                  }
                 });
               },
-              items: list.map<DropdownMenuItem<String>>((String value) {
+              items: listAno.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -104,14 +151,17 @@ class _ICMSPageState extends State<ICMSPage> {
               hint: const Text("Ano"),
             ),
             DropdownButton<String>(
-              value: dropdownValue,
+              value: mes,
               // isExpanded: true,
               onChanged: (String? value) {
                 setState(() {
-                  dropdownValue = value!;
+                  mes = value;
+                  if (value == 'Deixar em branco') {
+                    mes = null;
+                  }
                 });
               },
-              items: list.map<DropdownMenuItem<String>>((String value) {
+              items: listMes.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -119,7 +169,8 @@ class _ICMSPageState extends State<ICMSPage> {
               }).toList(),
               hint: const Text("Mês"),
             ),
-            // PieChart(dataMap: dataMap),
+            GeradorGrafico(
+                imposto: "ICMS", municipio: municipio, ano: ano, mes: mes),
           ],
         ),
       ),
@@ -142,7 +193,7 @@ class _ICMSPageState extends State<ICMSPage> {
             label: 'IPI',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.align_vertical_bottom_outlined),
             label: 'Royalties',
           ),
         ],

@@ -12,5 +12,5 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
-  FirebaseFirestore.instance.collection('teste').add({'teste': 'xcddf'});
+  FirebaseFirestore.instance.collection('teste').add({'teste': '000'});
 }
